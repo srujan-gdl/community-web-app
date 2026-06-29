@@ -21,10 +21,12 @@ export default {
         success: 'var(--status-success)',
         warning: 'var(--status-warning)',
         danger: 'var(--status-error)',
+        hoverBg: 'var(--bg-card)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         title: ['Outfit', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.4s ease-out forwards',

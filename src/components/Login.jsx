@@ -28,7 +28,7 @@ import {
   DialogTitle,
   DialogDescription
 } from '@/components/ui/dialog';
-import { getPasswordStrength, simulateLogin } from '../lib/auth';
+import { getPasswordStrength, loginWithApi } from '../lib/auth';
 
 export default function Login({ onLoginSuccess, onBackToHome }) {
   const { t, language, setLanguage } = useI18n();
@@ -78,7 +78,7 @@ export default function Login({ onLoginSuccess, onBackToHome }) {
     text: strengthInfo.labelKey ? t(`password_reset.strength.${strengthInfo.labelKey}`) : ''
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
 
@@ -89,23 +89,21 @@ export default function Login({ onLoginSuccess, onBackToHome }) {
 
     setIsLoading(true);
 
-    setTimeout(() => {
-      const result = simulateLogin(email, password);
-      setIsLoading(false);
+    const result = await loginWithApi(email, password);
+    setIsLoading(false);
 
-      if (result.success) {
-        const { user } = result;
-        if (user.must_change_password) {
-          setTempUser(user);
-          setOldPassword(password);
-          setShowResetModal(true);
-        } else {
-          onLoginSuccess(user);
-        }
+    if (result.success) {
+      const { user } = result;
+      if (user.must_change_password) {
+        setTempUser(user);
+        setOldPassword(password);
+        setShowResetModal(true);
       } else {
-        setErrorMsg(t(result.errorKey));
+        onLoginSuccess(user);
       }
-    }, 1000);
+    } else {
+      setErrorMsg(t(result.errorKey));
+    }
   };
 
   const handlePasswordReset = (e) => {
@@ -159,7 +157,7 @@ export default function Login({ onLoginSuccess, onBackToHome }) {
                 onClick={() => { setLanguage('es'); setShowLangDropdown(false); }}
                 className={`w-full justify-start text-left px-3 py-1.5 bg-transparent ${language === 'es' ? 'text-accentPrimary font-bold' : 'text-textSecondary'} hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors`}
               >
-                Español
+                {t('lang.es')}
               </Button>
               <Button
                 variant="ghost"
@@ -167,7 +165,7 @@ export default function Login({ onLoginSuccess, onBackToHome }) {
                 onClick={() => { setLanguage('en'); setShowLangDropdown(false); }}
                 className={`w-full justify-start text-left px-3 py-1.5 bg-transparent ${language === 'en' ? 'text-accentPrimary font-bold' : 'text-textSecondary'} hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors`}
               >
-                English
+                {t('lang.en')}
               </Button>
             </div>
           )}
@@ -326,7 +324,7 @@ export default function Login({ onLoginSuccess, onBackToHome }) {
                   id="email"
                   type="email"
                   disabled={isLoading}
-                  placeholder="name@example.com"
+                  placeholder={t('login.email_placeholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="pl-10 h-10"
@@ -407,7 +405,7 @@ export default function Login({ onLoginSuccess, onBackToHome }) {
 
       {/* Force Change Password Reset Modal dialog from shadcn */}
       <Dialog open={showResetModal} onOpenChange={() => { }}>
-        <DialogContent showCloseButton={false} className="max-w-sm p-6">
+        <DialogContent showCloseButton={false} className="max-w-sm p-6 bg-app border border-border text-textPrimary shadow-premium">
           <DialogHeader>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500 shrink-0">
