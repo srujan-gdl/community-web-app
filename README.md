@@ -54,7 +54,7 @@ Launches at `http://localhost:5173`. Toggle the language switch (`ES` / `EN`) in
 |---|---|---|
 | Phase 1 | ✅ Complete | Test environment configuration, Vitest + React Testing Library setup |
 | Phase 2 | ✅ Complete | Design tokens, light/dark theme switcher, i18n localization keys |
-| Phase 3 | 🔲 Pending | Screen W1: Sleek login + first-time force password reset modal |
+| Phase 3 | ✅ Complete | Screen W1: Sleek login + first-time force password reset modal |
 | Phase 4 | 🔲 Pending | Screens W2, W3, W5: Super Admin, Coto Admin, and Resident portals |
 | Phase 5 | 🔲 Pending | Screen W4: 3-column security guard console with Touch PIN pad & live WebSocket feed |
 | Phase 6 | 🔲 Pending | Code cleanup, deleting marketing LandingPage.jsx, and README updates |
