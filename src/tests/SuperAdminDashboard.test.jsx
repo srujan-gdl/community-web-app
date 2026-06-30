@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import SuperAdminDashboard from '../components/SuperAdminDashboard';
-import { I18nProvider } from '../i18n/i18nContext';
-import { ThemeProvider } from '../themeContext';
+import SuperAdminDashboard from '../components/dashboards/SuperAdminDashboard';
+import { I18nProvider } from '../context/i18nContext';
+import { ThemeProvider } from '../context/ThemeContext';
 import { SessionProvider } from '../context/SessionContext';
 
 vi.mock('../lib/api', () => ({

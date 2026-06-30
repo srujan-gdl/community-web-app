@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useI18n } from '../i18n/i18nContext';
-import { useSession } from '../context/SessionContext';
-import AppShell from './layout/AppShell';
+import { useI18n } from '../../context/i18nContext';
+import { useSession } from '../../context/SessionContext';
+import AppShell from '../layout/AppShell';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -29,8 +29,8 @@ import {
   LayoutDashboard,
   UserPlus,
 } from 'lucide-react';
-import { createCommunity, onboardCotoAdmin } from '../lib/api';
-import { validateForm, validateRequired, validateEmail, validatePhone, validatePassword } from '../lib/validators';
+import { createCommunity, onboardCotoAdmin } from '../../lib/api';
+import { validateForm, validateRequired, validateEmail, validatePhone, validatePassword } from '../../lib/validators';
 
 // ── Seed data (replaced by real API calls once backend is live) ──────────────
 const SEED_COMMUNITIES = [

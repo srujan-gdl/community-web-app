@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useI18n } from '../i18n/i18nContext';
-import { useSession } from '../context/SessionContext';
-import AppShell from './layout/AppShell';
+import { useI18n } from '../../context/i18nContext';
+import { useSession } from '../../context/SessionContext';
+import AppShell from '../layout/AppShell';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

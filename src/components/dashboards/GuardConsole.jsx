@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useI18n } from '../i18n/i18nContext';
+import { useI18n } from '../../context/i18nContext';
 import { ShieldCheck, LogOut, CheckCircle2, AlertTriangle, KeyRound, Bell, Loader2, Camera, Car, User } from 'lucide-react';
 
 export default function GuardConsole({ currentUser, onLogout }) {

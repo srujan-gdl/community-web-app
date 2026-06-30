@@ -1,12 +1,12 @@
 import React from 'react';
-import { I18nProvider } from './i18n/i18nContext';
-import { ThemeProvider } from './themeContext';
+import { I18nProvider } from './context/i18nContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { SessionProvider, useSession } from './context/SessionContext';
 import Login from './components/Login';
-import GuardConsole from './components/GuardConsole';
-import SuperAdminDashboard from './components/SuperAdminDashboard';
-import CotoAdminDashboard from './components/CotoAdminDashboard';
-import ResidentPortal from './components/ResidentPortal';
+import GuardConsole from './components/dashboards/GuardConsole';
+import SuperAdminDashboard from './components/dashboards/SuperAdminDashboard';
+import CotoAdminDashboard from './components/dashboards/CotoAdminDashboard';
+import ResidentPortal from './components/dashboards/ResidentPortal';
 
 /**
  * RoleRouter — decides which screen to render based on the authenticated user's role.

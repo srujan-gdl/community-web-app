@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Login from '../components/Login';
-import { I18nProvider } from '../i18n/i18nContext';
-import { ThemeProvider } from '../themeContext';
+import { I18nProvider } from '../context/i18nContext';
+import { ThemeProvider } from '../context/ThemeContext';
 
 // Mock the loginWithApi function so tests run fully offline.
 // Each test can override the resolved value with vi.mocked().mockResolvedValueOnce(...)

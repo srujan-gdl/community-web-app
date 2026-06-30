@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useI18n } from '../i18n/i18nContext';
-import { useTheme } from '../themeContext';
+import { useI18n } from '../context/i18nContext';
+import { useTheme } from '../context/ThemeContext';
 import {
   ShieldCheck,
   Mail,

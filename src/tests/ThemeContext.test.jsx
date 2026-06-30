@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { ThemeProvider, useTheme } from '../themeContext';
+import { ThemeProvider, useTheme } from '../context/ThemeContext';
 
 const TestComponent = () => {
   const { theme, setTheme, resolvedTheme } = useTheme();
